@@ -17,7 +17,7 @@ namespace BahiaImperial_API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddClients(Clients clients)
+        public async Task<IActionResult> AddClients(Client clients)
         {
             _appDbContext.Clients.Add(clients);
             await _appDbContext.SaveChangesAsync();

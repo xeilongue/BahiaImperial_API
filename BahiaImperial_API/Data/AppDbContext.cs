@@ -7,7 +7,7 @@ namespace BahiaImperial_API.Data
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Clients> Clients { get; set; }
+        public DbSet<Client> Clients { get; set; }
     }
 
 }
