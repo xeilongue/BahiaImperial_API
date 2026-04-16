@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BahiaImperial_API.Models;
+using BahiaImperial_API.Models.BankAccounts;
 
 namespace BahiaImperial_API.Data
 {
@@ -7,7 +8,13 @@ namespace BahiaImperial_API.Data
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<Client> clients { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Account> accounts { get; set; }
+        public DbSet<Transaction> transactions { get; set; }
+        public DbSet<Loan> loans { get; set; }
+
+
     }
 
 }
