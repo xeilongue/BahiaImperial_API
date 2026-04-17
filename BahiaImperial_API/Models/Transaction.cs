@@ -11,9 +11,13 @@
             withdraw
         }
 
+        // ATRIBUTOS
         public int Id { get; set; }
         public type Type { get; set; }
         public decimal Amount { get; set; }
-        public DateTime tr_date { get; set; }
+        public DateTime TrDate { get; set; }
+
+        // FOREIGN KEY
+        public int AccountId { get; set; }
     }
 }

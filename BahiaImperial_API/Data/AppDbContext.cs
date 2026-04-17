@@ -14,6 +14,11 @@ namespace BahiaImperial_API.Data
         public DbSet<Transaction> transactions { get; set; }
         public DbSet<Loan> loans { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //base.OnModelCreating(modelBuilder);
+
+        }
 
     }
 
