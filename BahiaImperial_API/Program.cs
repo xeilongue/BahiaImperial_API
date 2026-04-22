@@ -2,9 +2,10 @@
  * dotnet ef migrations add Inicial
  * dotnet ef database update
  * 
- * - configuração no dbcontext
- * 
-*/
+ * - configurar os datatypes
+ * - primarey keys
+ * - foreign keys
+*/ 
 
 
 using BahiaImperial_API.Data;
