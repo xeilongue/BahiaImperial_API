@@ -10,6 +10,8 @@ namespace BahiaImperial_API.Data.Configurations
         {
             user.ToTable("users");
 
+            user.HasKey(u => u.Cpf_Cnpj);
+
             user.Property(u => u.Cpf_Cnpj)
                 .HasMaxLength(14)
                 .IsRequired();
@@ -17,6 +19,11 @@ namespace BahiaImperial_API.Data.Configurations
             user.Property(u => u.Password)
                 .HasMaxLength(20)
                 .IsRequired();
+
+            user.HasOne(u => u.Client)
+                .WithOne(c => c.User)
+                .HasForeignKey<Client>(c => c.Cpf_Cnpj)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

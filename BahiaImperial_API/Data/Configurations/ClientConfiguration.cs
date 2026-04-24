@@ -10,6 +10,8 @@ namespace BahiaImperial_API.Data.Configurations
         {
             client.ToTable("clients");
 
+            client.HasKey(c => c.Cpf_Cnpj);
+
             client.Property(c => c.Cpf_Cnpj)
                 .HasMaxLength(14)
                 .IsRequired();
@@ -21,7 +23,6 @@ namespace BahiaImperial_API.Data.Configurations
             client.Property(c => c.MonthlyIncome)
                 .HasPrecision(15, 2)
                 .IsRequired();
-
         }
     }
 }

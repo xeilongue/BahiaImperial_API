@@ -10,5 +10,6 @@ namespace BahiaImperial_API.Models
         public string Name { get; set; }
         public decimal MonthlyIncome { get; set; }
 
+        public User User { get; set; }
     }
 }
