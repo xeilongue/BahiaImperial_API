@@ -1,4 +1,4 @@
-﻿]namespace BahiaImperial_API.Models
+﻿namespace BahiaImperial_API.Models
 {
     public class Loan
     {

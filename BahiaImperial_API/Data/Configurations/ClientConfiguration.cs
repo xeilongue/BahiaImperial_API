@@ -1,10 +1,11 @@
 ﻿using BahiaImperial_API.Models;
+using BahiaImperial_API.Models.BankAccounts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BahiaImperial_API.Data.Configurations
 {
-    public class ClientConfiguration
+    public class ClientConfiguration : IEntityTypeConfiguration<Client>
     {
         public void Configure(EntityTypeBuilder<Client> client)
         {

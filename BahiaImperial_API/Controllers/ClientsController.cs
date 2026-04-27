@@ -9,20 +9,20 @@ namespace BahiaImperial_API.Controllers
     [Route("api/[controller]")]
     public class ClientsController : ControllerBase
     {
-        private readonly AppDbContext _appDbContext;
+        //    private readonly AppDbContext _appDbContext;
 
-        public ClientsController(AppDbContext appDbContext)
-        {
-            _appDbContext = appDbContext;
-        }
+        //    public ClientsController(AppDbContext appDbContext)
+        //    {
+        //        _appDbContext = appDbContext;
+        //    }
 
-        [HttpPost]
-        public async Task<IActionResult> AddClients(Client clients)
-        {
-            _appDbContext.Clients.Add(clients);
-            await _appDbContext.SaveChangesAsync();
+        //    [HttpPost]
+        //    public async Task<IActionResult> AddClients(Client clients)
+        //    {
+        //        _appDbContext.Clients.Add(clients);
+        //        await _appDbContext.SaveChangesAsync();
 
-            return Ok(clients);
-        }
+        //        return Ok(clients);
+        //    }
     }
 }

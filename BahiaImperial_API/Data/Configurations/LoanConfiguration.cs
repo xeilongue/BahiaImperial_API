@@ -1,14 +1,17 @@
 ﻿using BahiaImperial_API.Models;
+using BahiaImperial_API.Models.BankAccounts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BahiaImperial_API.Data.Configurations
 {
-    public class LoanConfiguration
+    public class LoanConfiguration : IEntityTypeConfiguration<Loan>
     {
         public void Configure(EntityTypeBuilder<Loan> loan)
         {
             loan.ToTable("loans");
+
+            loan.HasKey(l => l.Id);
 
             loan.Property(l => l.AccountId)
                 .IsRequired();

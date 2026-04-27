@@ -3,10 +3,8 @@
  * dotnet ef database update
  * 
  * - configurar os datatypes
- * - primarey keys
  * - foreign keys
 */ 
-
 
 using BahiaImperial_API.Data;
 using Microsoft.EntityFrameworkCore;

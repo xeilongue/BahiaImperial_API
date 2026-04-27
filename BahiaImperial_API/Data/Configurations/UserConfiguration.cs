@@ -1,10 +1,11 @@
 ﻿using BahiaImperial_API.Models;
+using BahiaImperial_API.Models.BankAccounts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BahiaImperial_API.Data.Configurations
 {
-    public class UserConfiguration
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> user)
         {
@@ -24,6 +25,11 @@ namespace BahiaImperial_API.Data.Configurations
                 .WithOne(c => c.User)
                 .HasForeignKey<Client>(c => c.Cpf_Cnpj)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            user.HasMany(u => u.Accounts)
+                .WithOne()
+                .HasForeignKey(a => a.Cpf_Cnpj)
+                .IsRequired();
         }
     }
 }

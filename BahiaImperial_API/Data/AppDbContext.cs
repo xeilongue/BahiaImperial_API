@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BahiaImperial_API.Data.Configurations;
 using BahiaImperial_API.Models;
 using BahiaImperial_API.Models.BankAccounts;
+using Microsoft.EntityFrameworkCore;
 
 namespace BahiaImperial_API.Data
 {
@@ -18,10 +19,11 @@ namespace BahiaImperial_API.Data
         {
             base.OnModelCreating(modelBuilder);
 
-
-
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            modelBuilder.ApplyConfiguration(new AccountConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            modelBuilder.ApplyConfiguration(new LoanConfiguration());
         }
-
     }
-
 }
