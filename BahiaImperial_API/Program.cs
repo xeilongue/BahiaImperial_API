@@ -2,8 +2,8 @@
  * dotnet ef migrations add Inicial
  * dotnet ef database update
  * 
- * - configurar os datatypes
- * - foreign keys
+ * - configurar as restrições
+ * - foreign keys não aparece nas tabelas
 */ 
 
 using BahiaImperial_API.Data;

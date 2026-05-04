@@ -9,21 +9,31 @@ namespace BahiaImperial_API.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Account> account)
         {
-            account.ToTable("accounts");
+            account
+                .UseTphMappingStrategy()
+                .ToTable("accounts");
 
             account.HasKey(a => a.Id);
 
             account.Property(a => a.Id)
                 .IsRequired();
 
-            account.Property(a => a.Type)
-                .HasMaxLength(8);
-
             account.Property(a => a.Balance)
                 .HasPrecision(15, 2);
 
             account.Property(a => a.LoanLimit)
                 .HasPrecision(15, 2);
+
+            account.Property(a => a.Type)
+                .HasConversion<string>()
+                .HasMaxLength(13)
+                .IsRequired()
+                .HasColumnOrder(2);
+
+            account.HasDiscriminator(a => a.Type)
+                .HasValue<Business>(Account.AccountType.business)
+                .HasValue<Checking>(Account.AccountType.checking)
+                .HasValue<Saving>(Account.AccountType.saving);
 
             account.HasMany(a => a.Transactions)
                 .WithOne()

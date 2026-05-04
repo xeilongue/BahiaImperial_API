@@ -4,11 +4,11 @@
     {
         public enum type
         {
-            deposit,
-            loan_request,
-            loan_repayment,
-            transfer,
-            withdraw
+            Deposit = 0,
+            LoanRequest = 1,
+            LoanRepayment = 2,
+            Transfer = 3,
+            Withdraw = 4
         }
 
         // ATRIBUTOS

@@ -18,6 +18,7 @@ namespace BahiaImperial_API.Data.Configurations
 
             transaction.Property(t => t.Type)
                 .HasMaxLength(14)
+                .HasConversion<string>()
                 .IsRequired();
 
             transaction.Property(t => t.Amount)
