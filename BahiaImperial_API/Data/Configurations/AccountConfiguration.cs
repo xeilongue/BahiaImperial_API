@@ -16,10 +16,12 @@ namespace BahiaImperial_API.Data.Configurations
             account.HasKey(a => a.Id);
 
             account.Property(a => a.Id)
-                .IsRequired();
+                .IsRequired()
+                .ValueGeneratedOnAdd();
 
             account.Property(a => a.Balance)
-                .HasPrecision(15, 2);
+                .HasPrecision(15, 2)
+                .HasDefaultValue(0);
 
             account.Property(a => a.LoanLimit)
                 .HasPrecision(15, 2);

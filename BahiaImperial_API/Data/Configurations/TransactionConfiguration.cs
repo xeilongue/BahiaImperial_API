@@ -14,7 +14,8 @@ namespace BahiaImperial_API.Data.Configurations
             transaction.HasKey(t => t.Id);
 
             transaction.Property(t => t.Id)
-                .IsRequired();
+                .IsRequired()
+                .ValueGeneratedOnAdd();
 
             transaction.Property(t => t.Type)
                 .HasMaxLength(14)
@@ -27,6 +28,8 @@ namespace BahiaImperial_API.Data.Configurations
 
             transaction.Property(t => t.TrDate)
                 .HasColumnType("timestamp")
+                .ValueGeneratedOnAdd()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasPrecision(3)
                 .IsRequired();
         }

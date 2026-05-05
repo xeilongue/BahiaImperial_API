@@ -11,7 +11,7 @@
 
         // ATRIBUTOS
         public int Id { get; set; }
-        public decimal Balance { get; set; }
+        public decimal Balance { get; set; } = 0;
         public decimal LoanLimit { get; set; }
         public AccountType Type { get; set; }
 

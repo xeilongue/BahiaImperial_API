@@ -90,19 +90,19 @@ namespace BahiaImperial_API.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Created_At")
+                    b.Property<DateTime>("CreatedAt")
                         .HasPrecision(3)
                         .HasColumnType("timestamp");
 
-                    b.Property<decimal>("Current_Loan")
+                    b.Property<decimal>("CurrentLoan")
                         .HasPrecision(15, 2)
                         .HasColumnType("decimal(15,2)");
 
-                    b.Property<decimal>("Initial_Loan")
+                    b.Property<decimal>("InitialLoan")
                         .HasPrecision(15, 2)
                         .HasColumnType("decimal(15,2)");
 
-                    b.Property<int>("Loan_Status")
+                    b.Property<int>("LoanStatus")
                         .HasMaxLength(7)
                         .HasColumnType("int");
 
@@ -150,9 +150,10 @@ namespace BahiaImperial_API.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("varchar(14)");
 
-                    b.Property<int>("Password")
+                    b.Property<string>("Password")
+                        .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("int");
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("Cpf_Cnpj");
 

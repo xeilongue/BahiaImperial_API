@@ -14,22 +14,25 @@ namespace BahiaImperial_API.Data.Configurations
             loan.HasKey(l => l.Id);
 
             loan.Property(l => l.AccountId)
-                .IsRequired();
+                .IsRequired()
+                .ValueGeneratedOnAdd();
 
-            loan.Property(l => l.Initial_Loan)
+            loan.Property(l => l.InitialLoan)
                 .HasPrecision(15, 2)
                 .IsRequired();
 
-            loan.Property(l => l.Current_Loan)
+            loan.Property(l => l.CurrentLoan)
                 .HasPrecision(15, 2)
                 .IsRequired();
 
-            loan.Property(l => l.Loan_Status)
+            loan.Property(l => l.LoanStatus)
                 .HasMaxLength(7)
                 .IsRequired();
 
-            loan.Property(l => l.Created_At)
+            loan.Property(l => l.CreatedAt)
                 .HasColumnType("timestamp")
+                .ValueGeneratedOnAdd()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasPrecision(3)
                 .IsRequired();
         }

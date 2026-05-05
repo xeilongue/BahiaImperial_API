@@ -3,8 +3,13 @@
  * dotnet ef database update
  * 
  * - configurar as restrições
- * - foreign keys não aparece nas tabelas
-*/ 
+ * - api fluent:
+ * fazer com que o ef core ignore as colunas produzidas pelo bd
+ * 
+ * 
+ * 
+ * 
+*/
 
 using BahiaImperial_API.Data;
 using Microsoft.EntityFrameworkCore;

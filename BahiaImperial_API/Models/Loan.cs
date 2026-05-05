@@ -2,18 +2,18 @@
 {
     public class Loan
     {
-        public enum type
+        public enum Type
         {
-            active,
-            paid,
-            overdue
+            active = 0,
+            paid = 1,
+            overdue = 2
         }
 
         // ATRIBUTOS
         public int Id { get; set; }
         public decimal InitialLoan { get; set; }
         public decimal CurrentLoan { get; set; }
-        public type LoanStatus { get; set; }
+        public Type LoanStatus { get; set; }
         public DateTime CreatedAt { get; set; }
 
         // FOREIGN KEY
@@ -22,7 +22,7 @@
         public Loan (decimal InitialLoan, int AccountId)
         {
             this.InitialLoan = InitialLoan;
-            LoanStatus = type.active;
+            LoanStatus = Type.active;
 
             this.AccountId = AccountId;
         }
