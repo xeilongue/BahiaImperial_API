@@ -19,5 +19,13 @@
 
         // FOREIGN KEY
         public int AccountId { get; set; }
+
+        public Transaction (type Type, decimal Amount, int AccountId)
+        {
+            this.Type = Type;
+            this.Amount = Amount;
+
+            this.AccountId = AccountId;
+        }
     }
 }

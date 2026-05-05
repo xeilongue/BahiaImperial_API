@@ -2,7 +2,7 @@
 {
     public class Checking : Account
     {
-        public Checking (decimal LoanLimit, string Cpf_Cnpj) : base(LoanLimit, Cpf_Cnpj) {
+        public Checking (decimal LoanLimit, string Cpf_Cnpj) : base (LoanLimit, Cpf_Cnpj) {
             Type = AccountType.checking;
         }
     }
