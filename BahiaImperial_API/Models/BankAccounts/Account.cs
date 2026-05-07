@@ -22,7 +22,7 @@
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
         public ICollection<Loan> Loans { get; set; } = new List<Loan>();
 
-        private Account() { }
+        protected Account () { }
 
         public Account (decimal LoanLimit, string Cpf_Cnpj)
         {

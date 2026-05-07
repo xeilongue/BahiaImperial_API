@@ -19,9 +19,12 @@
         // FOREIGN KEY
         public int AccountId { get; set; }
 
+        private Loan () { }
+
         public Loan (decimal InitialLoan, int AccountId)
         {
             this.InitialLoan = InitialLoan;
+            CurrentLoan = InitialLoan;
             LoanStatus = Type.active;
 
             this.AccountId = AccountId;

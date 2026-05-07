@@ -3,8 +3,8 @@
  * dotnet ef database update
  * 
  * - configurar as restrições
- * - api fluent:
- * fazer com que o ef core ignore as colunas produzidas pelo bd
+ * 
+ * 
  * 
  * 
  * 

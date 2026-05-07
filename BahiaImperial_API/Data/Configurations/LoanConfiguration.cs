@@ -27,6 +27,7 @@ namespace BahiaImperial_API.Data.Configurations
 
             loan.Property(l => l.LoanStatus)
                 .HasMaxLength(7)
+                .HasConversion<string>()
                 .IsRequired();
 
             loan.Property(l => l.CreatedAt)

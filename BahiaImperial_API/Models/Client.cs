@@ -12,7 +12,7 @@ namespace BahiaImperial_API.Models
 
         public User User { get; set; }
 
-        protected Client () { }
+        private Client () { }
 
         public Client(string Cpf_Cnpj, string Name, decimal MonthlyIncome, User User)
         {

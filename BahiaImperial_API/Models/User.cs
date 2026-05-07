@@ -14,6 +14,8 @@ namespace BahiaImperial_API.Models
         // NAVIGATION ACCOUNTS
         public ICollection<Account> Accounts { get; set; } = new List<Account>();
 
+        private User () { }
+
         public User (string Cpf_Cnpj, string Password)
         {
             this.Cpf_Cnpj = Cpf_Cnpj;

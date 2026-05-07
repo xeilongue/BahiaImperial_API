@@ -21,10 +21,12 @@ namespace BahiaImperial_API.Data.Configurations
 
             account.Property(a => a.Balance)
                 .HasPrecision(15, 2)
-                .HasDefaultValue(0);
+                .HasDefaultValue(0)
+                .ValueGeneratedOnAdd();
 
             account.Property(a => a.LoanLimit)
-                .HasPrecision(15, 2);
+                .HasPrecision(15, 2)
+                .ValueGeneratedOnAdd();
 
             account.Property(a => a.Type)
                 .HasConversion<string>()
@@ -39,13 +41,11 @@ namespace BahiaImperial_API.Data.Configurations
 
             account.HasMany(a => a.Transactions)
                 .WithOne()
-                .HasForeignKey(t => t.AccountId)
-                .IsRequired();
+                .HasForeignKey(t => t.AccountId);
 
             account.HasMany(a => a.Loans)
                 .WithOne()
-                .HasForeignKey(l => l.AccountId)
-                .IsRequired();
+                .HasForeignKey(l => l.AccountId);
 
         }
     }

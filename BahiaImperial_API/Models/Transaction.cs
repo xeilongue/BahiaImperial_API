@@ -2,7 +2,7 @@
 {
     public class Transaction
     {
-        public enum type
+        public enum TransactionType
         {
             Deposit = 0,
             LoanRequest = 1,
@@ -13,14 +13,16 @@
 
         // ATRIBUTOS
         public int Id { get; set; }
-        public type Type { get; set; }
+        public TransactionType Type { get; set; }
         public decimal Amount { get; set; }
         public DateTime TrDate { get; set; }
 
         // FOREIGN KEY
         public int AccountId { get; set; }
 
-        public Transaction (type Type, decimal Amount, int AccountId)
+        private Transaction () { }
+
+        public Transaction (TransactionType Type, decimal Amount, int AccountId)
         {
             this.Type = Type;
             this.Amount = Amount;

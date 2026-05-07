@@ -18,7 +18,7 @@ namespace BahiaImperial_API.Data.Configurations
                 .IsRequired();
 
             user.Property(u => u.Password)
-                .HasMaxLength(20)
+                .HasMaxLength(50)
                 .IsRequired();
 
             user.HasOne(u => u.Client)
@@ -28,8 +28,7 @@ namespace BahiaImperial_API.Data.Configurations
 
             user.HasMany(u => u.Accounts)
                 .WithOne()
-                .HasForeignKey(a => a.Cpf_Cnpj)
-                .IsRequired();
+                .HasForeignKey(a => a.Cpf_Cnpj);
         }
     }
 }
