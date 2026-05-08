@@ -31,16 +31,20 @@ namespace BahiaImperial_API.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Balance")
+                        .ValueGeneratedOnAdd()
                         .HasPrecision(15, 2)
-                        .HasColumnType("decimal(15,2)");
+                        .HasColumnType("decimal(15,2)")
+                        .HasDefaultValue(0m);
 
                     b.Property<string>("Cpf_Cnpj")
-                        .IsRequired()
                         .HasColumnType("varchar(14)");
 
                     b.Property<decimal>("LoanLimit")
+                        .ValueGeneratedOnAdd()
                         .HasPrecision(15, 2)
                         .HasColumnType("decimal(15,2)");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<decimal>("LoanLimit"));
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -88,11 +92,14 @@ namespace BahiaImperial_API.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AccountId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasPrecision(3)
-                        .HasColumnType("timestamp");
+                        .HasColumnType("timestamp")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<decimal>("CurrentLoan")
                         .HasPrecision(15, 2)
@@ -102,9 +109,10 @@ namespace BahiaImperial_API.Migrations
                         .HasPrecision(15, 2)
                         .HasColumnType("decimal(15,2)");
 
-                    b.Property<int>("LoanStatus")
+                    b.Property<string>("LoanStatus")
+                        .IsRequired()
                         .HasMaxLength(7)
-                        .HasColumnType("int");
+                        .HasColumnType("varchar(7)");
 
                     b.HasKey("Id");
 
@@ -129,8 +137,10 @@ namespace BahiaImperial_API.Migrations
                         .HasColumnType("decimal(15,2)");
 
                     b.Property<DateTime>("TrDate")
+                        .ValueGeneratedOnAdd()
                         .HasPrecision(3)
-                        .HasColumnType("timestamp");
+                        .HasColumnType("timestamp")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -152,8 +162,8 @@ namespace BahiaImperial_API.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("Cpf_Cnpj");
 
@@ -185,9 +195,7 @@ namespace BahiaImperial_API.Migrations
                 {
                     b.HasOne("BahiaImperial_API.Models.User", null)
                         .WithMany("Accounts")
-                        .HasForeignKey("Cpf_Cnpj")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Cpf_Cnpj");
                 });
 
             modelBuilder.Entity("BahiaImperial_API.Models.Client", b =>

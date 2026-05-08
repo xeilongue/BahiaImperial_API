@@ -2,7 +2,7 @@
 using BahiaImperial_API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BahiaImperial_API.Repositories
+namespace BahiaImperial_API.Repositories.UserRepo
 {
     public class UserRepository : IUserRepository
     {

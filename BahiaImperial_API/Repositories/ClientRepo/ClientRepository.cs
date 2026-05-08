@@ -2,9 +2,9 @@
 using BahiaImperial_API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BahiaImperial_API.Repositories
+namespace BahiaImperial_API.Repositories.ClientRepo
 {
-    public class ClientRepository
+    public class ClientRepository : IClientRepository
     {
         private readonly AppDbContext _context;
 

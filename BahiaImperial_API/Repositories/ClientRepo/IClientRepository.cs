@@ -1,6 +1,6 @@
 ﻿using BahiaImperial_API.Models;
 
-namespace BahiaImperial_API.Repositories
+namespace BahiaImperial_API.Repositories.ClientRepo
 {
     public interface IClientRepository
     {
