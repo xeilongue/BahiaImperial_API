@@ -1,4 +1,4 @@
-﻿]using BahiaImperial_API.Data;
+﻿using BahiaImperial_API.Data;
 using BahiaImperial_API.Models;
 using Microsoft.EntityFrameworkCore;
 

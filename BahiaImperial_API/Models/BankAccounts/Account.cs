@@ -20,7 +20,7 @@
 
         // NAVIGATION
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
-        public ICollection<Loan> Loans { get; set; } = new List<Loan>();
+        //public ICollection<Loan> Loans { get; set; } = new List<Loan>();
 
         protected Account () { }
 
