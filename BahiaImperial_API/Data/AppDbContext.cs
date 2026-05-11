@@ -13,7 +13,7 @@ namespace BahiaImperial_API.Data
         public DbSet<User> users { get; set; }
         public DbSet<Account> accounts { get; set; }
         public DbSet<Transaction> transactions { get; set; }
-        public DbSet<Loan> loans { get; set; }
+        //public DbSet<Loan> loans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace BahiaImperial_API.Data
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
-            modelBuilder.ApplyConfiguration(new LoanConfiguration());
+            //modelBuilder.ApplyConfiguration(new LoanConfiguration());
         }
     }
 }

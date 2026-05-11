@@ -43,9 +43,9 @@ namespace BahiaImperial_API.Data.Configurations
                 .WithOne()
                 .HasForeignKey(t => t.AccountId);
 
-            account.HasMany(a => a.Loans)
-                .WithOne()
-                .HasForeignKey(l => l.AccountId);
+            //account.HasMany(a => a.Loans)
+            //    .WithOne()
+            //    .HasForeignKey(l => l.AccountId);
 
         }
     }
