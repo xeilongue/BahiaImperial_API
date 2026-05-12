@@ -1,4 +1,4 @@
-﻿]namespace BahiaImperial_API.DTOs
+﻿namespace BahiaImperial_API.DTOs
 {
     public class AccountDTO
     {
