@@ -21,6 +21,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using BahiaImperial_API.Services.UserServ;
+using BahiaImperial_API.Services.ClientServ;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +42,12 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+
+// REGISTRO DO SERVICES
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+//builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+//builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 
 // CONFIGURAÇÃO DO JWT
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);

@@ -20,14 +20,14 @@
         // FOREIGN KEY
         public int AccountId { get; set; }
 
-        private Transaction () { }
+        public Transaction () { }
 
-        public Transaction (TransactionType Type, decimal Amount, int AccountId)
-        {
-            this.Type = Type;
-            this.Amount = Amount;
+        //public Transaction (TransactionType Type, decimal Amount, int AccountId)
+        //{
+        //    this.Type = Type;
+        //    this.Amount = Amount;
 
-            this.AccountId = AccountId;
-        }
+        //    this.AccountId = AccountId;
+        //}
     }
 }

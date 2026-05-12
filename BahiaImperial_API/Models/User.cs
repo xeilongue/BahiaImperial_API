@@ -14,12 +14,12 @@ namespace BahiaImperial_API.Models
         // NAVIGATION ACCOUNTS
         public ICollection<Account> Accounts { get; set; } = new List<Account>();
 
-        private User () { }
+        public User () { }
 
-        public User (string Cpf_Cnpj, string Password)
-        {
-            this.Cpf_Cnpj = Cpf_Cnpj;
-            this.Password = Password;
-        }
+        //public User (string Cpf_Cnpj, string Password)
+        //{
+        //    this.Cpf_Cnpj = Cpf_Cnpj;
+        //    this.Password = Password;
+        //}
     }
 }

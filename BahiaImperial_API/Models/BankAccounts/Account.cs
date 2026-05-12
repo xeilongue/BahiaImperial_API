@@ -22,13 +22,13 @@
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
         //public ICollection<Loan> Loans { get; set; } = new List<Loan>();
 
-        protected Account () { }
+        public Account () { }
 
-        public Account (decimal LoanLimit, string Cpf_Cnpj)
-        {
-            this.LoanLimit = LoanLimit;
-            this.Cpf_Cnpj = Cpf_Cnpj;
-        }
+        //public Account (decimal LoanLimit, string Cpf_Cnpj)
+        //{
+        //    this.LoanLimit = LoanLimit;
+        //    this.Cpf_Cnpj = Cpf_Cnpj;
+        //}
 
     }
 }

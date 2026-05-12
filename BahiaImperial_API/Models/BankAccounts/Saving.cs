@@ -2,7 +2,8 @@
 {
     public class Saving : Account
     {
-        public Saving (decimal LoanLimit, string Cpf_Cnpj) : base (LoanLimit, Cpf_Cnpj) {
+        public Saving()
+        {
             Type = AccountType.saving;
         }
     }
