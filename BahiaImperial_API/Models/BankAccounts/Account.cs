@@ -19,7 +19,7 @@
         public string Cpf_Cnpj { get; set; }
 
         // NAVIGATION
-        public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+        public ICollection<BankTransaction> Transactions { get; set; } = new List<BankTransaction>();
         //public ICollection<Loan> Loans { get; set; } = new List<Loan>();
 
         public Account () { }

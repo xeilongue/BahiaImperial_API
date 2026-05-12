@@ -12,7 +12,7 @@ namespace BahiaImperial_API.Data
         public DbSet<Client> clients { get; set; }
         public DbSet<User> users { get; set; }
         public DbSet<Account> accounts { get; set; }
-        public DbSet<Transaction> transactions { get; set; }
+        public DbSet<BankTransaction> transactions { get; set; }
         //public DbSet<Loan> loans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

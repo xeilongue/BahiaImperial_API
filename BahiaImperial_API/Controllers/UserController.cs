@@ -4,6 +4,7 @@ using BahiaImperial_API.Models;
 using BahiaImperial_API.DTOs;
 using BahiaImperial_API.Repositories.UserRepo;
 using BahiaImperial_API.Services.UserServ;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BahiaImperial_API.Controllers
 {
@@ -23,6 +24,7 @@ namespace BahiaImperial_API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get() => Ok(await _service.ListarTodos());
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post(UserDTO userDTO)
         {

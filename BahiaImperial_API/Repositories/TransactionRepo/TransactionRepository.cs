@@ -13,12 +13,12 @@ namespace BahiaImperial_API.Repositories.TransactionRepo
             _context = context;
         }
 
-        public async Task<IEnumerable<Transaction>> ListarTodos()
+        public async Task<IEnumerable<BankTransaction>> ListarTodos()
         {
             return await _context.transactions.ToListAsync();
         }
 
-        public async Task Adicionar(Transaction transaction)
+        public async Task Adicionar(BankTransaction transaction)
         {
             await _context.transactions.AddAsync(transaction);
             await _context.SaveChangesAsync();

@@ -1,16 +1,9 @@
-﻿namespace BahiaImperial_API.DTOs
+﻿using BahiaImperial_API.Models;
+
+namespace BahiaImperial_API.DTOs
 {
     public class TransactionDTO
     {
-        public enum TransactionType
-        {
-            Deposit = 0,
-            LoanRequest = 1,
-            LoanRepayment = 2,
-            Transfer = 3,
-            Withdraw = 4
-        }
-
         // ATRIBUTOS
         public int Id { get; set; }
         public TransactionType Type { get; set; }

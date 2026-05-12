@@ -4,7 +4,7 @@ namespace BahiaImperial_API.Repositories.TransactionRepo
 {
     public interface ITransactionRepository
     {
-        Task<IEnumerable<Transaction>> ListarTodos();
-        Task Adicionar(Transaction transaction);
+        Task<IEnumerable<BankTransaction>> ListarTodos();
+        Task Adicionar(BankTransaction transaction);
     }
 }

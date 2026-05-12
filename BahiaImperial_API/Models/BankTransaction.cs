@@ -1,15 +1,15 @@
 ﻿namespace BahiaImperial_API.Models
 {
-    public class Transaction
+    public enum TransactionType
     {
-        public enum TransactionType
-        {
-            Deposit = 0,
-            LoanRequest = 1,
-            LoanRepayment = 2,
-            Transfer = 3,
-            Withdraw = 4
-        }
+        Deposit = 0,
+        LoanRequest = 1,
+        LoanRepayment = 2,
+        Transfer = 3,
+        Withdraw = 4
+    }
+    public class BankTransaction
+    {
 
         // ATRIBUTOS
         public int Id { get; set; }
@@ -20,7 +20,7 @@
         // FOREIGN KEY
         public int AccountId { get; set; }
 
-        public Transaction () { }
+        public BankTransaction() { }
 
         //public Transaction (TransactionType Type, decimal Amount, int AccountId)
         //{

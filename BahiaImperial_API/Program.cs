@@ -2,12 +2,7 @@
  * dotnet ef migrations add Inicial
  * dotnet ef database update
  * 
- * - configurar as restrições
- * 
- * 
- * 
- * 
- * 
+ * - 
  * 
 */
 
@@ -46,7 +41,7 @@ builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 // REGISTRO DO SERVICES
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IClientService, ClientService>();
-//builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+//builder.Services.AddScoped<IAccountRepository, AccountRepository>(); 
 //builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 
 // CONFIGURAÇÃO DO JWT
@@ -95,6 +90,9 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

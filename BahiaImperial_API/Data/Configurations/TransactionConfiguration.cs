@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BahiaImperial_API.Data.Configurations
 {
-    public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
+    public class TransactionConfiguration : IEntityTypeConfiguration<BankTransaction>
     {
-        public void Configure(EntityTypeBuilder<Transaction> transaction)
+        public void Configure(EntityTypeBuilder<BankTransaction> transaction)
         {
             transaction.ToTable("transactions");
 
