@@ -5,24 +5,29 @@
     <title>Registro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body class="vw-100 vh-100 container-sm d-flex bg-success">
+<body class="vw-100 vh-100 container-sm d-flex bg-dark">
 
-    <div class="w-50 h-50 container-sm d-flex justify-content-center align-self-center">
+    <div class="w-50 h-50 container-sm d-flex justify-content-center align-self-center align-items-center">
 
-        <form class ="w-50 h-50">
+        <form class="d-flex w-50 h-100 bg-white flex-column justify-content-center p-4 rounded-5">
+
+            <div class="align-self-center">
+                <label for="Login" class="form-title">Cadastro</label>
+            </div>
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Usuário</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input class="form-control" id="InputEmailRegister" aria-describedby="emailHelp">
+
                 <div id="emailHelp" class="text-light">Cpf (Pessoa física) / Cnpj (Pessoa Jurídica).</div>
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="InputPasswordRegister">
             </div>
 
-            <button type="submit" class="btn btn-light">Registrar</button>
+            <button onclick="RegisterUser()" type="button" class="btn btn-light">Registrar</button>
 
             <div>
                 <p>Já possui uma conta? <a href="index.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Login</a></p>

@@ -44,13 +44,13 @@ async function LoginUser(event) {
 
         if (response.ok) {
             alert("Login efetuado com sucesso!");
-            window.location.href = "dashboard.html"
+            window.location.href = "dashboard.html";
 
             const data = await response.json();
             const token = data.token;
             localStorage.setItem("jwtToken", token);
         } else {
-            alert("Usuário ou senha incorretos")
+            alert("Usuário ou senha incorretos!");
         }
     } catch (erro) {
         console.error(erro);
@@ -58,31 +58,24 @@ async function LoginUser(event) {
 }
 
 async function RegisterUser() {
-    const token = document.getElementById('inputToken').value;
-
-    if (!token) {
-        alert("Acesso Negado: Cole o Token JWT primeiro!");
-        return;
-    }
 
     const newUser = {
-        cpf_Cnpj: "1234567901",
-        password: "123"
+        cpf_Cnpj: document.getElementById("InputEmailRegister").value,
+        password: document.getElementById("InputPasswordRegister").value
     };
 
     try {
-        const resposta = await fetch(apiUrl, {
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(newUser)
         });
 
-        if (resposta.ok) {
+        if (response.ok) {
             alert("Usuário cadastrado com sucesso!");
-            LoadUsers();
+            window.location.href = "dashboard.html";
         } else {
             alert("Erro 401: Token inválido ou expirado.");
         }
