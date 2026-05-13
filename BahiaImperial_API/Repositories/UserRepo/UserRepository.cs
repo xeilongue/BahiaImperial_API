@@ -23,5 +23,11 @@ namespace BahiaImperial_API.Repositories.UserRepo
             await _context.users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<User> GetById(String userId)
+        {
+            return await _context.users.FirstOrDefaultAsync(u => u.Cpf_Cnpj == userId);
+        }
+
     }
 }

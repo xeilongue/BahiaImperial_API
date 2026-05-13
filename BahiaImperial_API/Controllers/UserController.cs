@@ -24,7 +24,6 @@ namespace BahiaImperial_API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get() => Ok(await _service.ListarTodos());
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post(UserDTO userDTO)
         {
