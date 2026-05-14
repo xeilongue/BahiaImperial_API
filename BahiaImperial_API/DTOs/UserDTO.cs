@@ -1,4 +1,6 @@
-﻿namespace BahiaImperial_API.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BahiaImperial_API.DTOs
 {
     public class UserDTO
     {

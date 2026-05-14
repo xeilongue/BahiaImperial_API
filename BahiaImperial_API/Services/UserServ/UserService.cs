@@ -18,6 +18,36 @@ namespace BahiaImperial_API.Services.UserServ
 
         public async Task Criar(UserDTO userDTO)
         {
+            if (userDTO.Cpf_Cnpj == null || userDTO.Cpf_Cnpj.Trim() == "")
+            {
+                throw new Exception("CPF ou CNPJ é obrigatório!");
+            }
+
+            if (userDTO.Password == null || userDTO.Password.Trim() == "")
+            {
+                throw new Exception("Senha é obrigatória!");
+            }
+
+            userDTO.Cpf_Cnpj = userDTO.Cpf_Cnpj.Trim();
+
+            userDTO.Cpf_Cnpj = userDTO.Cpf_Cnpj
+            .Replace(".", "")
+            .Replace("-", "")
+            .Replace("/", "");
+
+            userDTO.Password = userDTO.Password.Trim();
+
+            if (userDTO.Cpf_Cnpj.Length != 11 && userDTO.Cpf_Cnpj.Length != 14)
+            {
+                throw new Exception("CPF ou CNPJ inválido!");
+            }
+
+            User validateUser = await _repository.GetById(userDTO.Cpf_Cnpj);
+            if (validateUser != null)
+            {
+                throw new Exception("Esse usuário já está cadastrado.");
+            }
+
             var user = new User
             {
                 Cpf_Cnpj = userDTO.Cpf_Cnpj,

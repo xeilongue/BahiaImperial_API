@@ -21,6 +21,7 @@ namespace BahiaImperial_API.Controllers
             _service = service;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Get() => Ok(await _service.ListarTodos());
 
@@ -30,11 +31,11 @@ namespace BahiaImperial_API.Controllers
             try
             {
                 await _service.Criar(userDTO);
-                return Ok("Usuario cadastrado");
+                return Ok(new { message = "Usuario cadastrado" });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new {message = ex.Message});
             }
         }
 

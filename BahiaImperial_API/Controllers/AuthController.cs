@@ -26,39 +26,49 @@ namespace BahiaImperial_API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserDTO userlogin)
         {
-            var user = await _service.GetById(userlogin.Cpf_Cnpj);
-
-            if (user != null && user.Password == userlogin.Password)
+            try
             {
-                var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
-                var tokenDescription = new SecurityTokenDescriptor
+                var user = await _service.GetById(userlogin.Cpf_Cnpj);
+
+                if (user != null && user.Password == userlogin.Password)
                 {
-                    Subject = new ClaimsIdentity(new[]
+                    var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+                    var tokenDescription = new SecurityTokenDescriptor
                     {
-                        new Claim(ClaimTypes.Name, userlogin.Cpf_Cnpj),
-                        new Claim(ClaimTypes.Role, "Administrador")
-                    }),
-                    Expires = DateTime.UtcNow.AddHours(2),
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                    Issuer = _configuration["Jwt:Issuer"],
-                    Audience = _configuration["Jwt:Audience"]
+                        Subject = new ClaimsIdentity(new[]
+                        {
+                            new Claim(ClaimTypes.Name, userlogin.Cpf_Cnpj),
+                            new Claim(ClaimTypes.Role, "Administrador")
+                        }),
+                        Expires = DateTime.UtcNow.AddHours(2),
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+                        Issuer = _configuration["Jwt:Issuer"],
+                        Audience = _configuration["Jwt:Audience"]
 
-                };
+                    };
 
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var token = tokenHandler.CreateToken(tokenDescription);
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var token = tokenHandler.CreateToken(tokenDescription);
 
-                return Ok(new
+                    return Ok(new
+                    {
+                        token = tokenHandler.WriteToken(token),
+                        mensagem = "Login feito com sucesso"
+                    });
+                }
+
+                return Unauthorized(new
                 {
-                    token = tokenHandler.WriteToken(token),
-                    mensagem = "Login feito com sucesso"
+                    erro = "Usuário ou senha inválidos"
                 });
             }
-
-            return Unauthorized(new
+            catch (Exception ex)
             {
-                erro = "Usuário ou senha inválidos"
-            });
+                return BadRequest(new
+                {
+                    erro = ex.Message
+                });
+            }
         }
 
     }

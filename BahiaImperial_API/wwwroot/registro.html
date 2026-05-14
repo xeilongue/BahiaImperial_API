@@ -2,41 +2,59 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Registro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Criar Conta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="vw-100 vh-100 container-sm d-flex bg-dark">
+<body class="bg-dark d-flex align-items-center justify-content-center min-vh-100">
 
-    <div class="w-50 h-50 container-sm d-flex justify-content-center align-self-center align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-8 col-md-6 col-lg-4">
 
-        <form class="d-flex w-50 h-100 bg-white flex-column justify-content-center p-4 rounded-5">
+                <form class="bg-white p-4 p-md-5 rounded-4 shadow-lg d-flex flex-column">
 
-            <div class="align-self-center">
-                <label for="Login" class="form-title">Cadastro</label>
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold">Cadastro</h2>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="InputEmailRegister" class="form-label fw-semibold">Usuário</label>
+                        <input class="form-control" id="InputEmailRegister" placeholder="CPF ou CNPJ">
+                        <div id="emailHelp" class="form-text mt-2">Cpf (Pessoa física) / Cnpj (Pessoa Jurídica).</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="InputPasswordRegister2" class="form-label fw-semibold">Senha</label>
+                        <input type="password" class="form-control" id="InputPasswordRegister" placeholder="Crie uma senha">
+                    </div>
+
+                    <div class="form-check form-switch mb-4">
+                        <input class="form-check-input" type="checkbox" role="switch" id="showPassword"
+                               onchange="
+                                        const passwordInput = document.getElementById('InputPasswordRegister');
+                                        passwordInput.type = (this.checked) ? 'text' : 'password';">
+                        <label class="form-check-label small text-muted" for="showPassword" style="cursor: pointer;">Mostrar senha</label>
+                    </div>
+
+                    <div class="d-grid gap-2 mb-4">
+                        <button onclick="RegisterUser(event)" type="submit" class="btn btn-primary btn-lg shadow-sm">Registrar</button>
+                    </div>
+
+                    <div class="text-center">
+                        <p class="mb-0 small">
+                            Já possui uma conta?
+                            <a href="index.html" class="link-danger text-decoration-none fw-bold">Login</a>
+                        </p>
+                    </div>
+
+                </form>
+
             </div>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Usuário</label>
-                <input class="form-control" id="InputEmailRegister" aria-describedby="emailHelp">
-
-                <div id="emailHelp" class="text-light">Cpf (Pessoa física) / Cnpj (Pessoa Jurídica).</div>
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="InputPasswordRegister">
-            </div>
-
-            <button onclick="RegisterUser()" type="button" class="btn btn-light">Registrar</button>
-
-            <div>
-                <p>Já possui uma conta? <a href="index.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Login</a></p>
-            </div>
-
-        </form>
+        </div>
     </div>
 
     <script src="app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

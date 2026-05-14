@@ -1,11 +1,35 @@
 ﻿const apiUrl = '/api/User';
 const apiUrlAuth = '/api/Auth';
 
-async function LoadUsers() {
-    try {
-        const response = await fetch(apiUrl);
-        const User = await response.json();
+function Logout() {
+    localStorage.removeItem('jwtToken');
+    window.location.href = 'index.html';
+}
 
+async function LoadUsers() {
+    const token = localStorage.getItem('jwtToken');
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.status === 401) {
+            alert("Sessão expirada ou acesso negado. Faça login novamente.");
+            localStorage.removeItem('jwtToken');
+            window.location.href = "index.html";
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error("Erro ao carregar os dados do servidor.");
+        }
+
+        const User = await response.json();
         const tbody = document.getElementById('tablebody');
         tbody.innerHTML = '';
 
@@ -16,9 +40,9 @@ async function LoadUsers() {
                     <td>${user.cpf_Cnpj}</td>
                     <td>${user.password}</td>
                 </tr>
-            `
-            console.log(user);
+            `;
         });
+
     } catch (error) {
         alert("Erro ao buscar os dados.");
         console.error(error);
@@ -29,7 +53,7 @@ async function LoginUser(event) {
     if (event) event.preventDefault();
 
     const user = {
-        cpf_cnpj: document.getElementById("InputEmail").value,
+        cpf_Cnpj: document.getElementById("InputEmail").value,
         password: document.getElementById("InputPassword").value
     };
 
@@ -52,13 +76,13 @@ async function LoginUser(event) {
         } else {
             alert("Usuário ou senha incorretos!");
         }
-    } catch (erro) {
-        console.error(erro);
+    } catch (error) {
+        console.error(error);
     }
 }
 
-async function RegisterUser() {
-
+async function RegisterUser(event) {
+    if (event) event.preventDefault();
     const newUser = {
         cpf_Cnpj: document.getElementById("InputEmailRegister").value,
         password: document.getElementById("InputPasswordRegister").value
@@ -73,13 +97,17 @@ async function RegisterUser() {
             body: JSON.stringify(newUser)
         });
 
+        const data = await response.json();
         if (response.ok) {
-            alert("Usuário cadastrado com sucesso!");
-            window.location.href = "dashboard.html";
+            alert("Usuário cadastrado com sucesso. Efetue o login!");
+            window.location.href = "index.html";
+            return;
         } else {
-            alert("Erro 401: Token inválido ou expirado.");
+            alert(data.message);
         }
-    } catch (erro) {
-        console.error(erro);
+    } catch (error) {
+        alert("Erro de conexão com o servidor.");
+        console.error(error);
     }
+
 }
