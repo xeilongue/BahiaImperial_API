@@ -66,7 +66,7 @@ Configure a string:
 
 ```json
 "ConnectionStrings": {
-   "DefaultConnection":"server=localhost;database=EventHorizon;user=root;password=suaSenha"
+   "DefaultConnection":"server=localhost;database=bahia_imperial;user=root;password={suaSenha}"
 }
 ```
 
@@ -104,14 +104,24 @@ http://localhost:5248
 
 ---
 
-### 5. Acesse a aplicação
+## Swagger / Endpoints
 
-Abra o endereço HTTP retornado.
+A documentação Swagger está em:
+    https://localhost:{porta}/swagger
 
-Páginas disponíveis:
+Endpoints principais (exemplos):
+- `POST /api/auth/login` — autenticar e obter token JWT
+- `POST /api/users` — cadastrar usuário
+- `GET /api/users` — listar usuários (rota protegida)
 
+Exemplo de header Authorization:
+    Authorization: Bearer {token}
+
+## Front-end
+Páginas estáticas em `wwwroot` (ex.: `wwwroot/index.html`):
 - Login
 - Cadastro
+- Dashboard (requer token)
 
 ---
 
@@ -151,10 +161,9 @@ A dashboard exibe uma tabela contendo usuários cadastrados.
 **Implementado:**
 
 - redirecionamento
-- proteção da rota
-- listagem dinâmica
 - consulta ao banco
 - tabela de usuários
+- opção de logout
 
 ---
 
@@ -183,7 +192,6 @@ Repositories/
 Models/
 DTOs/
 Data/
-Views/
 wwwroot/
 ```
 
@@ -191,12 +199,29 @@ wwwroot/
 
 ## Instalação dos Pacotes Essenciais
 
-```bash
-dotnet add package Microsoft.EntityFrameworkCore.Design
+```
+Microsoft.EntityFrameworkCore
 
-dotnet add package Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.Tools
 
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Design
 
-dotnet add package Swashbuckle.AspNetCore
+Pomelo.EntityFrameworkCore.MySql
+
+Swashbuckle.AspNetCore.Swagger
+
+Swashbuckle.AspNetCore.SwaggerUI
+
+Microsoft.AspNetCore.Authentication.JwtBearer
+
+System.IdentityModel.Tokens.Jwt
+
+Instale pacotes (exemplo via PowerShell):
+    dotnet add package Microsoft.EntityFrameworkCore
+    dotnet add package Microsoft.EntityFrameworkCore.Tools
+    dotnet add package Microsoft.EntityFrameworkCore.Design
+    dotnet add package Pomelo.EntityFrameworkCore.MySql
+    dotnet add package Swashbuckle.AspNetCore
+    dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+    dotnet add package System.IdentityModel.Tokens.Jwt
 ```
