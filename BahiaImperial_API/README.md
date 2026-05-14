@@ -43,7 +43,7 @@ Além da API, foram implementadas páginas web para cadastro, login e dashboard 
 Clone:
 
 ```bash
-git clone https://github.com/BROGvitorio/EventHorizon_API.git
+git clone https://github.com/xeilongue/BahiaImperial_API.git
 ```
 
 Ou:
