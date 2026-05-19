@@ -6,5 +6,6 @@ namespace BahiaImperial_API.Repositories.TransactionRepo
     {
         Task<IEnumerable<BankTransaction>> ListarTodos();
         Task Adicionar(BankTransaction transaction);
+        Task<BankTransaction> GetById(String );
     }
 }
